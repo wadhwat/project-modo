@@ -69,3 +69,30 @@ Possible Pi-to-STM32 messages:
 - Request hardware status
 - Acknowledge an event
 - Reset a peripheral
+
+STM32F405 Feather connection table (For now)
+
+| Device/function       | Feather connection                         | Other end                       | Purpose                                                        |
+| --------------------- | ------------------------------------------ | ------------------------------- | -------------------------------------------------------------- |
+| D-pad Up              | D9 / PB8                                   | Switch to GND                   | Up Arrow                                                       |
+| D-pad Down            | D10 / PB9                                  | Switch to GND                   | Down Arrow                                                     |
+| D-pad Left            | D11 / PC3                                  | Switch to GND                   | Left Arrow                                                     |
+| D-pad Right           | D12 / PC2                                  | Switch to GND                   | Right Arrow                                                    |
+| Red button            | A0 / PA4                                   | Switch to GND                   | Enter                                                          |
+| Green button          | A1 / PA5                                   | Switch to GND                   | Escape                                                         |
+| Blue/triangle button  | A2 / PA6                                   | Switch to GND                   | F13                                                            |
+| Encoder A             | D6 / PC6 / TIM3_CH1                        | Encoder A output                | Rotation                                                       |
+| Encoder B             | D5 / PC7 / TIM3_CH2                        | Encoder B output                | Rotation                                                       |
+| Encoder push          | A3 / PA7                                   | Switch to GND                   | F14 or Mute                                                    |
+| PN532 SDA             | SDA / D14 / PB7                            | PN532 SDA                       | I²C data                                                       |
+| PN532 SCL             | SCL / D15 / PB6                            | PN532 SCL                       | I²C clock                                                      |
+| PN532 IRQ             | A4 / PC4                                   | PN532 IRQ                       | Tag-ready interrupt                                            |
+| PN532 Reset           | A5 / PC5                                   | PN532 RESET/RSTPD_N             | Reader reset                                                   |
+| PN532 power           | 3V                                         | PN532 3.3V/VCC                  | 3.3 V power                                                    |
+| PN532 ground          | GND                                        | PN532 GND                       | Common ground                                                  |
+| USB HID and power     | Feather USB-C                              | Pi USB-A via data-capable cable | Powers Feather and carries keyboard/media events               |
+| UART: Feather → Pi    | TX / D1 / PB10                             | Pi GPIO15/RXD, physical pin 10  | NFC events and hardware status                                 |
+| UART: Pi → Feather    | RX / D0 / PB11                             | Pi GPIO14/TXD, physical pin 8   | Commands and status requests                                   |
+| UART ground reference | GND                                        | Pi GND                          | Already shared through USB; separate wire normally unnecessary |
+| Built-in status LED   | D13 / PC1                                  | No external connection          | Reserved for firmware status                                   |
+| Programming only      | B0 temporarily connected to 3V, then reset | —                               | Enter USB DFU bootloader; not permanent                        |
