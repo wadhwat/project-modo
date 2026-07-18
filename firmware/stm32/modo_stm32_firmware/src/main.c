@@ -50,7 +50,7 @@ int main(void)
     while (1) // toggle the LED twice a second
     {
         HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_1);
-        HAL_Delay(3000);
+        HAL_Delay(250);
     }
 }
 
